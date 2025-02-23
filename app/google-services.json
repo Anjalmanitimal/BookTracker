@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "803328038525",
+    "firebase_url": "https://book-tracker-dfa6c-default-rtdb.firebaseio.com",
+    "project_id": "book-tracker-dfa6c",
+    "storage_bucket": "book-tracker-dfa6c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803328038525:android:744006734486a5c2744314",
+        "android_client_info": {
+          "package_name": "com.example.booktracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArwvU9OjiQJJ_3KhcZ7oXPIPGPfu8RAfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
