@@ -3,7 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="32dp"
+    android:background="@android:color/black"
+    android:gravity="center">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/signupTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-medium"/>
 
     <!-- Email EditText -->
     <EditText
@@ -11,7 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edit_text_bg"
+        android:textColor="@android:color/white"
+
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
 
     <!-- Password EditText -->
     <EditText
@@ -19,12 +37,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:background="@drawable/edit_text_bg"
+        android:textColor="@android:color/white"
+
+        android:padding="12dp"
+        android:layout_marginBottom="24dp"/>
 
     <!-- Signup Button -->
     <Button
         android:id="@+id/signupButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up" />
+        android:text="Sign Up"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Login Text Link -->
+    <TextView
+        android:id="@+id/loginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Log in"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"/>
+
 </LinearLayout>
