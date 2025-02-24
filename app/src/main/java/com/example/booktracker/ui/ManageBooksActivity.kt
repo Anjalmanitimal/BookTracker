@@ -1,5 +1,4 @@
 package com.example.booktracker.ui
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,16 +8,17 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.booktracker.adapter.ManageBookAdapter
+import com.example.booktracker.adapter.ManageBooksAdapter
 import com.example.booktracker.databinding.ActivityManageBooksBinding
 import com.example.booktracker.model.Book
+import com.example.booktracker.ui.BookReviewsActivity
 import com.example.booktracker.viewmodel.BookViewModel
 import kotlinx.coroutines.launch
 
 class ManageBooksActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManageBooksBinding
     private val bookViewModel = BookViewModel()
-    private val bookAdapter = ManageBookAdapter(::showEditDialog, ::deleteBook)
+    private val bookAdapter = ManageBooksAdapter(::showEditDialog, ::deleteBook)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +33,17 @@ class ManageBooksActivity : AppCompatActivity() {
             finish() // Closes this activity and returns to HomeActivity
         }
 
+        // Add a listener for the new button to go to BookReviewsActivity
+        binding.btnViewReviews.setOnClickListener {
+            val intent = Intent(this, BookReviewsActivity::class.java)
+            startActivity(intent)
+        }
+
         lifecycleScope.launch {
             bookViewModel.books.collect { books ->
                 bookAdapter.submitList(books)
             }
         }
-
-
     }
 
     // Function to edit book details

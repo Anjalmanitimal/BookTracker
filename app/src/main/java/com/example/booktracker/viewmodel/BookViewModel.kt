@@ -24,6 +24,11 @@ class BookViewModel : ViewModel() {
             _books.value = books
         }
     }
+    fun saveReview(book: Book, review: String) {
+        // Update the book's review field
+        val updatedBook = book.copy(review = review)
+        bookRepository.updateBook(updatedBook)  // Assuming you have an updateBook method in your repo
+    }
 
     // Add a book to the database
     fun addBook(book: Book) {

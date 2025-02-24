@@ -21,14 +21,16 @@ class BookRepository {
         }
     }
 
-
-
+    // Function to update the book in Firebase (including review)
     fun updateBook(book: Book) {
         if (book.id.isNotEmpty()) {
             booksRef.child(book.id).setValue(book)
         }
     }
 
+
+
+        // Function to delete a book
     fun deleteBook(book: Book) {
         if (book.id.isNotEmpty()) {
             booksRef.child(book.id).removeValue()
@@ -55,6 +57,5 @@ class BookRepository {
             }
         })
     }
-
-
 }
+

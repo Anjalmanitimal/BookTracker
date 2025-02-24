@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.booktracker.R
 import com.example.booktracker.model.Book
 
-class ManageBookAdapter(
+class ManageBooksAdapter(
     private val onEditClick: (Book) -> Unit,
     private val onDeleteClick: (Book) -> Unit
-) : RecyclerView.Adapter<ManageBookAdapter.BookViewHolder>() {
+) : RecyclerView.Adapter<ManageBooksAdapter.BookViewHolder>() {
 
     private var books = listOf<Book>()
 
@@ -37,6 +37,7 @@ class ManageBookAdapter(
         private val bookTitle: TextView = itemView.findViewById(R.id.tvBookTitle)
         private val bookPageRange: TextView = itemView.findViewById(R.id.tvPageRange)
         private val bookAuthor: TextView = itemView.findViewById(R.id.tvBookAuthor)
+
         private val btnEdit: Button = itemView.findViewById(R.id.btnEdit)
         private val btnDelete: Button = itemView.findViewById(R.id.btnDelete)
 
@@ -44,6 +45,9 @@ class ManageBookAdapter(
             bookTitle.text = book.title
             bookPageRange.text = "Pages: ${book.pageRange}"
             bookAuthor.text = "Author: ${book.author}"
+
+            // Bind the review text
+
 
             btnEdit.setOnClickListener { onEditClick(book) }
             btnDelete.setOnClickListener { onDeleteClick(book) }

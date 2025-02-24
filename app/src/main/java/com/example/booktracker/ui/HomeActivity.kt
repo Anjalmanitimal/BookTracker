@@ -1,5 +1,7 @@
 package com.example.booktracker.ui
 
+
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,13 +50,16 @@ class HomeActivity : AppCompatActivity() {
 
         // Logout button click listener
         binding.btnLogout.setOnClickListener {
-            finish() // Simply close the HomeActivity, which will navigate back to login
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)// Simply close the HomeActivity, which will navigate back to login
         }
 
         binding.btnManageBooks.setOnClickListener {
             val intent = Intent(this, ManageBooksActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 
     private fun showAddBookDialog() {
