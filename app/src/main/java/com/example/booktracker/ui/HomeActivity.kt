@@ -1,5 +1,6 @@
 package com.example.booktracker.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.EditText
@@ -38,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Fetch books from Firebase when the activity starts
-        bookViewModel.fetchBooks()
+
 
         // Add Book button click listener
         binding.btnAddBook.setOnClickListener {
@@ -48,6 +49,11 @@ class HomeActivity : AppCompatActivity() {
         // Logout button click listener
         binding.btnLogout.setOnClickListener {
             finish() // Simply close the HomeActivity, which will navigate back to login
+        }
+
+        binding.btnManageBooks.setOnClickListener {
+            val intent = Intent(this, ManageBooksActivity::class.java)
+            startActivity(intent)
         }
     }
 

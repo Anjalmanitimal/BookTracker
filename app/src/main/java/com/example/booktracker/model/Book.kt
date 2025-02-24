@@ -1,10 +1,10 @@
 package com.example.booktracker.model
 
 data class Book(
-    val title: String = "",
-    val author: String = "",
-    val pageRange: String = "" // New field for page range
+    var title: String = "",
+    var author: String = "",
+    var pageRange: String = "",
+    var id: String = ""  // Keep 'id' here for Firebase
 ) {
-    // Default constructor for Firebase deserialization
-    constructor() : this("", "", "")
+    constructor() : this("", "", "", "")  // No-argument constructor for Firebase
 }
