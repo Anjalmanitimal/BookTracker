@@ -1,5 +1,6 @@
 package com.example.booktracker.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -35,6 +36,13 @@ class BookReviewsActivity : AppCompatActivity() {
             bookViewModel.books.collect { books ->
                 bookReviewsAdapter.submitList(books)  // Pass books to the adapter
             }
+        }
+
+        // Set up the Back to Home button click listener
+        binding.btnBackToHome.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)  // Make sure HomeActivity is declared in your manifest
+            startActivity(intent)
+            finish()  // Optionally call finish to prevent users from going back to this activity
         }
     }
 }
