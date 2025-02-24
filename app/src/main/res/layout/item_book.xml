@@ -2,29 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="16dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- Book Title Text -->
+    <!-- Book Title -->
     <TextView
         android:id="@+id/tvBookTitle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Book Title"
         android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:ellipsize="end"
-        android:maxLines="1"/>
+        android:textStyle="bold"
+        android:textColor="#A81E1E" />
 
-    <!-- Book Author Text -->
+    <!-- Page Range (Below Book Title) -->
+    <TextView
+        android:id="@+id/tvPageRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pages: 10-50"
+        android:textSize="14sp"
+        android:textColor="#666666" />
+
+    <!-- Author Name (Below Page Range) -->
     <TextView
         android:id="@+id/tvBookAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Author"
+        android:text="Author: John Doe"
         android:textSize="16sp"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginStart="16dp"/>
+        android:textColor="#333333" />
+
 </LinearLayout>

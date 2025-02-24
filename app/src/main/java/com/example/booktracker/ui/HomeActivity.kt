@@ -55,6 +55,7 @@ class HomeActivity : AppCompatActivity() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_book, null)
         val bookTitleEditText = dialogView.findViewById<EditText>(R.id.etBookTitle)
         val bookAuthorEditText = dialogView.findViewById<EditText>(R.id.etBookAuthor)
+        val pageRangeEditText = dialogView.findViewById<EditText>(R.id.etPageRange)
 
         android.app.AlertDialog.Builder(this)
             .setTitle("Add New Book")
@@ -62,9 +63,10 @@ class HomeActivity : AppCompatActivity() {
             .setPositiveButton("Add") { _, _ ->
                 val title = bookTitleEditText.text.toString()
                 val author = bookAuthorEditText.text.toString()
+                val pageRange = pageRangeEditText.text.toString()
 
                 if (title.isNotEmpty() && author.isNotEmpty()) {
-                    val book = Book(title, author)
+                    val book = Book(title, author, pageRange)
                     bookViewModel.addBook(book)
                 } else {
                     Toast.makeText(this, "Please enter both title and author", Toast.LENGTH_SHORT).show()

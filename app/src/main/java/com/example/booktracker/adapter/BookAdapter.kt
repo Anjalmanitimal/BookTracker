@@ -1,39 +1,44 @@
 package com.example.booktracker.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.DiffUtil
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.booktracker.databinding.ItemBookBinding
+import com.example.booktracker.R
 import com.example.booktracker.model.Book
 
-class BookAdapter : ListAdapter<Book, BookAdapter.BookViewHolder>(BookDiffCallback()) {
+class BookAdapter : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+
+    private var books = listOf<Book>()
+
+    fun submitList(newBooks: List<Book>) {
+        books = newBooks
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val binding = ItemBookBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BookViewHolder(binding)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false)
+        return BookViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        val book = getItem(position)
+        val book = books[position]
         holder.bind(book)
     }
 
-    inner class BookViewHolder(private val binding: ItemBookBinding) : RecyclerView.ViewHolder(binding.root) {
+    override fun getItemCount(): Int = books.size
+
+    class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val bookTitle: TextView = itemView.findViewById(R.id.tvBookTitle)
+        private val bookPageRange: TextView = itemView.findViewById(R.id.tvPageRange)
+        private val bookAuthor: TextView = itemView.findViewById(R.id.tvBookAuthor)
+
         fun bind(book: Book) {
-            binding.tvBookTitle.text = book.title
-            binding.tvBookAuthor.text = book.author
-        }
-    }
-
-    class BookDiffCallback : DiffUtil.ItemCallback<Book>() {
-        override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
-            return oldItem.title == newItem.title && oldItem.author == newItem.author
-        }
-
-        override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
-            return oldItem == newItem
+            bookTitle.text = book.title  // Book Name
+            bookPageRange.text = "Pages: ${book.pageRange}"  // Page Range below title
+            bookAuthor.text = "Author: ${book.author}"  // Author Name
         }
     }
 }
+
